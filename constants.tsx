@@ -8,17 +8,16 @@ export const MOCK_USERS: User[] = [
     age: 24,
     bio: 'Traveler and food lover. Always looking for the next adventure.',
     distance: '2km',
+    distanceValue: 2,
+    locationCountry: 'Ghana',
+    locationRegion: 'Greater Accra',
     online: true,
     photo: 'https://picsum.photos/seed/amina/400/600',
     isInstagramVerified: true,
     instagramHandle: 'amina_travels',
-    instagramPhotos: [
-      'https://picsum.photos/seed/a1/200/200',
-      'https://picsum.photos/seed/a2/200/200',
-      'https://picsum.photos/seed/a3/200/200'
-    ],
     interests: ['Travel', 'Cooking', 'Music'],
-    intent: 'serious'
+    intent: 'serious',
+    gender: 'female'
   },
   {
     id: '2',
@@ -26,11 +25,15 @@ export const MOCK_USERS: User[] = [
     age: 28,
     bio: 'Software dev during the day, dancer by night.',
     distance: '5km',
+    distanceValue: 5,
+    locationCountry: 'Ghana',
+    locationRegion: 'Greater Accra',
     online: false,
     photo: 'https://picsum.photos/seed/kojo/400/600',
     isInstagramVerified: false,
     interests: ['Coding', 'Dance', 'Fitness'],
-    intent: 'casual'
+    intent: 'casual',
+    gender: 'male'
   },
   {
     id: '3',
@@ -38,17 +41,16 @@ export const MOCK_USERS: User[] = [
     age: 22,
     bio: 'Art student. I paint feelings.',
     distance: '800m',
+    distanceValue: 0.8,
+    locationCountry: 'Nigeria',
+    locationRegion: 'Lagos',
     online: true,
     photo: 'https://picsum.photos/seed/zainab/400/600',
     isInstagramVerified: true,
     instagramHandle: 'zainart',
-    instagramPhotos: [
-      'https://picsum.photos/seed/z1/200/200',
-      'https://picsum.photos/seed/z2/200/200',
-      'https://picsum.photos/seed/z3/200/200'
-    ],
     interests: ['Art', 'History', 'Coffee'],
-    intent: 'friends'
+    intent: 'friends',
+    gender: 'female'
   },
   {
     id: '4',
@@ -56,12 +58,48 @@ export const MOCK_USERS: User[] = [
     age: 30,
     bio: 'Love hiking and meaningful conversations.',
     distance: '10km',
+    distanceValue: 10,
+    locationCountry: 'Nigeria',
+    locationRegion: 'Abuja',
     online: true,
     photo: 'https://picsum.photos/seed/chidi/400/600',
     isInstagramVerified: true,
     instagramHandle: 'chidi_hikes',
     interests: ['Hiking', 'Books', 'Philosophy'],
-    intent: 'serious'
+    intent: 'serious',
+    gender: 'male'
+  },
+  {
+    id: '5',
+    name: 'Elena',
+    age: 31,
+    bio: 'Photographer and sunset chaser.',
+    distance: '12km',
+    distanceValue: 12,
+    locationCountry: 'Ghana',
+    locationRegion: 'Ashanti',
+    online: true,
+    photo: 'https://picsum.photos/seed/elena/400/600',
+    isInstagramVerified: true,
+    interests: ['Photography', 'Nature'],
+    intent: 'serious',
+    gender: 'female'
+  },
+  {
+    id: '6',
+    name: 'Marcus',
+    age: 25,
+    bio: 'Fitness coach and vegan cook.',
+    distance: '1.5km',
+    distanceValue: 1.5,
+    locationCountry: 'Ghana',
+    locationRegion: 'Greater Accra',
+    online: true,
+    photo: 'https://picsum.photos/seed/marcus/400/600',
+    isInstagramVerified: false,
+    interests: ['Gym', 'Cooking'],
+    intent: 'casual',
+    gender: 'male'
   }
 ];
 
@@ -103,8 +141,13 @@ export const ICONS = {
   ),
   Settings: (props: any) => (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z" />
       <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+    </svg>
+  ),
+  Filter: (props: any) => (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 01-.659 1.591l-5.432 5.432a2.25 2.25 0 00-.659 1.591v2.927a2.25 2.25 0 01-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 00-.659-1.591L3.659 7.409A2.25 2.25 0 013 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0112 3z" />
     </svg>
   ),
   Activity: (props: any) => (
